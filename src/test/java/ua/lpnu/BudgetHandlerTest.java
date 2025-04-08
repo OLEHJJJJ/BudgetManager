@@ -34,7 +34,7 @@ public class BudgetHandlerTest {
         budgetHandler.addExpense();
 
         assertEquals(1, budgetListModel.size());
-        assertEquals("🍔 Їжа - 250 грн - Обід у кафе", budgetListModel.getElementAt(0));
+        assertEquals("🍔 Їжа - 250 грн - Обід у їдальні", budgetListModel.getElementAt(0));
     }
 
     @Test
