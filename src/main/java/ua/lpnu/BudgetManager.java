@@ -12,27 +12,28 @@ public class BudgetManager {
     private JButton addButton, removeButton, clearButton, editButton, statsButton;
 
     public BudgetManager() {
-        frame = new JFrame("Менеджер Бюджету 💰"); // Додав емодзі в заголовок
+        frame = new JFrame("Менеджер Бюджету 💰");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700, 500);
+        frame.setSize(720, 520);
         frame.setLayout(new BorderLayout());
-        frame.getContentPane().setBackground(Color.WHITE);
+        frame.getContentPane().setBackground(new Color(240, 240, 240));
 
         // Ініціалізація списку витрат
         budgetListModel = new DefaultListModel<>();
         budgetList = new JList<>(budgetListModel);
+        budgetList.setFont(new Font("Arial", Font.PLAIN, 14));
         frame.add(new JScrollPane(budgetList), BorderLayout.CENTER);
 
         // Панель для введення витрат
         JPanel inputPanel = new JPanel(new GridLayout(2, 2, 10, 10));
-        inputPanel.setBackground(Color.LIGHT_GRAY);
-        inputPanel.setBorder(BorderFactory.createTitledBorder("Додати витрату")); // Змінений заголовок
+        inputPanel.setBackground(Color.WHITE);
+        inputPanel.setBorder(BorderFactory.createTitledBorder("Додати витрату"));
 
         amountInput = new JTextField();
         amountInput.setBorder(BorderFactory.createTitledBorder("Сума"));
         descriptionInput = new JTextField();
         descriptionInput.setBorder(BorderFactory.createTitledBorder("Опис"));
-        categoryBox = new JComboBox<>(new String[]{"🍔 Їжа", "🚕 Транспорт", "🎉 Розваги", "📦 Інше"}); // Додав емодзі
+        categoryBox = new JComboBox<>(new String[]{"🍔 Їжа", "🚕 Транспорт", "🎉 Розваги", "📦 Інше"});
 
         inputPanel.add(amountInput);
         inputPanel.add(descriptionInput);
@@ -41,14 +42,14 @@ public class BudgetManager {
 
         // Панель з кнопками
         JPanel buttonPanel = new JPanel(new GridLayout(1, 5, 10, 10));
-        buttonPanel.setBackground(Color.DARK_GRAY);
-        buttonPanel.setBorder(BorderFactory.createTitledBorder("Дії")); // Додано заголовок
+        buttonPanel.setBackground(Color.WHITE);
+        buttonPanel.setBorder(BorderFactory.createTitledBorder("Дії"));
 
-        addButton = new JButton("➕ Додати");
-        removeButton = new JButton("🗑️ Видалити"); // Змінено емодзі
-        clearButton = new JButton("🔄 Очистити");
-        editButton = new JButton("📝 Редагувати"); // Змінено емодзі
-        statsButton = new JButton("📈 Статистика"); // Змінено емодзі
+        addButton = UIHelper.createStyledButton("➕ Додати");
+        removeButton = UIHelper.createStyledButton("🗑 Видалити");
+        clearButton = UIHelper.createStyledButton("🔄 Очистити");
+        editButton = UIHelper.createStyledButton("📝 Редагувати");
+        statsButton = UIHelper.createStyledButton("📈 Статистика");
 
         buttonPanel.add(addButton);
         buttonPanel.add(removeButton);
